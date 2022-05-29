@@ -1,7 +1,5 @@
 package bg.softUni.mobilele.model.entity;
 
-import bg.softUni.mobilele.model.enums.RoleEnum;
-
 import javax.persistence.*;
 import java.util.*;
 import java.time.Instant;
@@ -10,13 +8,13 @@ import java.time.Instant;
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
-    private String username;
+    private String email;
     private String password;
     private String firstname;
     private String lastName;
     private boolean isActive;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private UserRoleEntity role ;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<UserRoleEntity> roles = new LinkedList<>() ;
     private String imageUrl;
     private Instant created;
     private Instant modified;
@@ -35,21 +33,21 @@ public class UserEntity extends BaseEntity {
         return this;
     }
 
-    public UserRoleEntity getRole() {
-        return role;
+    public List<UserRoleEntity> getRoles() {
+        return roles;
     }
 
-    public UserEntity setRole(UserRoleEntity role) {
-        this.role = role;
+    public UserEntity setRoles(List<UserRoleEntity> role) {
+        this.roles = role;
         return this;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public UserEntity setUsername(String username) {
-        this.username = username;
+    public UserEntity setEmail(String email) {
+        this.email = email;
         return this;
     }
 
@@ -116,5 +114,11 @@ public class UserEntity extends BaseEntity {
     public UserEntity setModified(Instant modified) {
         this.modified = modified;
         return this;
+    }
+
+    public UserEntity addRole(UserRoleEntity userRoleEntity){
+        this.roles.add(userRoleEntity);
+        return this;
+
     }
 }
