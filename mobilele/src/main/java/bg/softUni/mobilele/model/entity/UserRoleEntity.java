@@ -2,15 +2,13 @@ package bg.softUni.mobilele.model.entity;
 
 import bg.softUni.mobilele.model.enums.UserRoleEnum;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
 public class UserRoleEntity extends BaseEntity {
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 

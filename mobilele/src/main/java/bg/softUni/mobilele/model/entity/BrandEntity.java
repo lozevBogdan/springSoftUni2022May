@@ -11,13 +11,15 @@ import java.time.LocalDateTime;
 @Table(name = "brands")
 public class BrandEntity extends BaseEntity {
 
+    @Column(nullable = false)
     private String name;
 
     private Instant created;
 
     private Instant modified;
 
-    @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER,
+    @OneToMany(mappedBy = "brand",
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private List<ModelEntity> models;
 

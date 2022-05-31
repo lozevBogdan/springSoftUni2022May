@@ -11,11 +11,14 @@ import java.time.Instant;
 @Table(name = "offers")
 public class OfferEntity extends BaseEntity {
 
+    @Column(nullable = false)
     private String description;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EngineEnum engine;
     private String imageUrl;
     private Integer mileage;
+    @Column(nullable = false)
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private TransmissionEnum transmission;

@@ -10,11 +10,14 @@ import java.time.LocalDateTime;
 @Table(name = "models")
 public class ModelEntity extends BaseEntity {
 
-    private String name; 
+    @Column(nullable = false)
+    private String name;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private CategoryEnum category;
 
+    @Column(nullable = false)
     private String imageUrl;
 
     private Integer startYear;

@@ -8,13 +8,14 @@ import java.time.Instant;
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
+    @Column(nullable = false)
     private String email;
     private String password;
     private String firstname;
     private String lastName;
     private boolean isActive;
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<UserRoleEntity> roles = new LinkedList<>() ;
+    private List<UserRoleEntity> roles = new ArrayList<>() ;
     private String imageUrl;
     private Instant created;
     private Instant modified;
