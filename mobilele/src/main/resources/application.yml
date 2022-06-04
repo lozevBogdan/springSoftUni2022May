@@ -4,7 +4,7 @@ logging:
     org: WARN
     org.hibernate.SQL: DEBUG
 server:
-  port: 8000
+  port: 8080
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -12,8 +12,10 @@ spring:
     url: jdbc:mysql://localhost:3306/mobilelele2022?createDatabaseIfNotExist=true
     username: root
   jpa:
-    #               the next line is for reading of sql file
-    #        defer-datasource-initialization: true
+    #the next line is for reading of sql file, this property will say to
+    #Spring to initializeted fir the data Base and after her initialization to
+    # execute the sql file
+      defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
     open-in-view: false
@@ -22,7 +24,13 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
 
-        #property for delete method
+#        for loading a data from data.sql file shoud use next propurties:
+  #but first we need to unlock this JPA property - defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
+  #property for delete method
 
   mvc:
     hiddenmethod:
