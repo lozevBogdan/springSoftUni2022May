@@ -36,6 +36,8 @@ private static final String LANG_COOKIE_NAME = "lang";
     // The value of " @RequestParam("language") String language"  will comes
      // from cookies.html form by selected option
 
+// HttpServletResponse httpServletResponse = is a object representation of the
+    // responce which we return to the client, here we add the cookie
     @PostMapping("/cookies")
     public String cookies(
             HttpServletResponse httpServletResponse,
@@ -43,7 +45,7 @@ private static final String LANG_COOKIE_NAME = "lang";
     ){
 
         Cookie cookie = new Cookie(LANG_COOKIE_NAME,language);
-        httpServletResponse.addCookie(cookie);
+      //  httpServletResponse.addCookie(cookie);
 
         return "redirect:/cookies";
     }
