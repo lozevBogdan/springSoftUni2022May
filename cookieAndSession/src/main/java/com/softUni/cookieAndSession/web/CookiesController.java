@@ -45,7 +45,7 @@ private static final String LANG_COOKIE_NAME = "lang";
     ){
 
         Cookie cookie = new Cookie(LANG_COOKIE_NAME,language);
-      //  httpServletResponse.addCookie(cookie);
+      httpServletResponse.addCookie(cookie);
 
         return "redirect:/cookies";
     }
