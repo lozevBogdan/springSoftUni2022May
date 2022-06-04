@@ -8,14 +8,11 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    password:
+    password: 6460okokok
     url: jdbc:mysql://localhost:3306/mobilelele2022?createDatabaseIfNotExist=true
     username: root
   jpa:
-    #the next line is for reading of sql file, this property will say to
-    #Spring to initializeted fir the data Base and after her initialization to
-    # execute the sql file
-      defer-datasource-initialization: true
+
     hibernate:
       ddl-auto: create-drop
     open-in-view: false
@@ -23,8 +20,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
-
-#        for loading a data from data.sql file shoud use next propurties:
+    #the next line is for reading of sql file, this property will say to
+    #Spring to initializeted fir the data Base and after her initialization to
+    # execute the sql file
+    defer-datasource-initialization: true
+  # for loading a data from data.sql file shoud use next propurties:
   #but first we need to unlock this JPA property - defer-datasource-initialization: true
   sql:
     init:

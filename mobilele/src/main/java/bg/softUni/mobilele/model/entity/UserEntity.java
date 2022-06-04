@@ -11,7 +11,7 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String email;
     private String password;
-    private String firstname;
+    private String firstName;
     private String lastName;
     private boolean isActive;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -61,12 +61,12 @@ public class UserEntity extends BaseEntity {
         return this;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public UserEntity setFirstname(String firstname) {
-        this.firstname = firstname;
+    public UserEntity setFirstName(String firstname) {
+        this.firstName = firstname;
         return this;
     }
 
@@ -121,5 +121,11 @@ public class UserEntity extends BaseEntity {
         this.roles.add(userRoleEntity);
         return this;
 
+    }
+
+    @PrePersist
+    public void dateAndTimeCreation(){
+        this.created = Instant.now();
+        System.out.println("Im in prepersist annotayion, heyyyy");
     }
 }
