@@ -1,6 +1,7 @@
 package bg.softUni.mobilele.service;
 
 import bg.softUni.mobilele.model.dto.UserLoginDto;
+import bg.softUni.mobilele.model.dto.UserRegisterDto;
 import bg.softUni.mobilele.model.entity.UserEntity;
 import bg.softUni.mobilele.repository.UserRepository;
 import bg.softUni.mobilele.user.CurrentUser;
@@ -26,6 +27,23 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    public void registerAndLogin(UserRegisterDto userRegisterDto){
+
+        UserEntity newUser =
+                new UserEntity().
+                        setActive(true).
+                        setEmail(userRegisterDto.getEmail()).
+                        setFirstName(userRegisterDto.getFirstName()).
+                        setLastName(userRegisterDto.getLastName()).
+                        setPassword(passwordEncoder.
+                                encode(userRegisterDto.getPassword()));
+
+                    newUser = userRepository.save(newUser);
+
+                    login(newUser);
+
+
+    }
 
     public boolean login(UserLoginDto userLoginDto){
 
