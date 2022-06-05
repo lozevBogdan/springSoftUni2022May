@@ -23,7 +23,6 @@ public class UserLoginController {
 
     @GetMapping("/users/logout")
     public String logout(){
-
         userService.logout();
         return "redirect:/";
     }
@@ -32,10 +31,7 @@ public class UserLoginController {
 
     @PostMapping("/users/login")
     public String login(UserLoginDto userLoginDto){
-
-        System.out.println("User is logged: " + userService.login(userLoginDto));
-
-
+      userService.login(userLoginDto);
         return "redirect:/";
     }
 
