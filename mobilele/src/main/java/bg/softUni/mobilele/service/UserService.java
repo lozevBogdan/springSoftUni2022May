@@ -52,7 +52,7 @@ public class UserService {
 
     }
 
-    private void logout(){
+    public void logout(){
         currentUser.clear();
     }
 
