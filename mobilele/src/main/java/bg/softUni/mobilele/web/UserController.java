@@ -38,26 +38,6 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/register")
-    public String register(){
-        return "auth-register";
-    }
 
-
-    // With @Valid we validate the data in field in userModel. BindingResults always should be become
-    // ofter userModel and he catch the errors.
-
-    @PostMapping("/register")
-    public String register(@Valid UserRegisterDto userModel,
-                           BindingResult bindingResult){
-
-        if (bindingResult.hasErrors()){
-
-            return "redirect:/users/register";
-        }
-
-        userService.registerAndLogin(userModel);
-        return "redirect:/";
-    }
 
 }
