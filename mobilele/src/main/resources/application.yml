@@ -21,7 +21,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
     #the next line is for reading of sql file, this property will say to
-    #Spring to initializeted fir the data Base and after her initialization to
+    #Spring to initializeted first the data Base by Hibernate and after her initialization to
     # execute the sql file
     defer-datasource-initialization: true
   # for loading a data from data.sql file shoud use next propurties:
