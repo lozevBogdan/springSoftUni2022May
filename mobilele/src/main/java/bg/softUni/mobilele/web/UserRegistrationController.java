@@ -43,7 +43,9 @@ public class UserRegistrationController {
     // bindingResult, they will be accessible in redirected page.
     // in this way we can redirect them to getmapping.
     //org.springframework.validation.BindingResult.userModel - is the name of Dto",
-    // //bindingResult - the catch errors, they will catch by th:errorclass="is-invalid" in html,
+    // //bindingResult - the catch errors, they will catch by th:errorclass="is-invalid"
+    // in html. if we have any errors,saved in bindingResults for this field,
+    // we attach to this field class= invalid!
     // and invalid-feedback class will be active and visible
     // with th:field in html we bind the field from entity with input form !
 
