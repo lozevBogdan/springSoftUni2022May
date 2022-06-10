@@ -18,7 +18,8 @@ public class SessionController {
 
 // With HttpSession httpSession we can work with the userSessiion.
 // Spring will create a new session,
-// which session will be sended on the client in response headers, in cookie with name JSESSIONID
+// which session will be sended on the client in response headers,
+// in cookie with name JSESSIONID
     @GetMapping("/session")
     public String session(HttpSession httpSession, Model model){
 
