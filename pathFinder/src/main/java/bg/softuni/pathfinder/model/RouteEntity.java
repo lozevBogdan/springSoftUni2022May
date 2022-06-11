@@ -10,12 +10,15 @@ import javax.persistence.*;
 public class RouteEntity extends BaseEntity {
 
     @Column(columnDefinition = "LONGTEXT ")
-    private String coordinates;
+    private String gpxCoordinates;
 
     @Enumerated(EnumType.STRING)
     private LevelEnum level;
 
     private String name;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     @ManyToOne
     private UserEntity author;
@@ -31,12 +34,12 @@ public class RouteEntity extends BaseEntity {
     )
     private List<PictureEntity> pictures;
 
-    public String getCoordinates() {
-        return coordinates;
+    public String getGpxCoordinates() {
+        return gpxCoordinates;
     }
 
-    public RouteEntity setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public RouteEntity setGpxCoordinates(String coordinates) {
+        this.gpxCoordinates = coordinates;
         return this;
     }
 
@@ -73,6 +76,33 @@ public class RouteEntity extends BaseEntity {
 
     public RouteEntity setUrl(String url) {
         this.url = url;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public RouteEntity setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public List<CategoryEntity> getCategories() {
+        return categories;
+    }
+
+    public RouteEntity setCategories(List<CategoryEntity> categories) {
+        this.categories = categories;
+        return this;
+    }
+
+    public List<PictureEntity> getPictures() {
+        return pictures;
+    }
+
+    public RouteEntity setPictures(List<PictureEntity> pictures) {
+        this.pictures = pictures;
         return this;
     }
 }
