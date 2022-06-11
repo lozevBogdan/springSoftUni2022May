@@ -6,11 +6,10 @@ import bg.softuni.pathfinder.model.enums.RoleEnum;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Table
+@Table(name = "users")
 @Entity
 public class UserEntity extends BaseEntity {
 
@@ -22,18 +21,21 @@ public class UserEntity extends BaseEntity {
     @Size(min = 2)
     private String password;
 
-    @NotNull
-    @Email
+
+
     private String email;
 
     @ManyToMany
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id",
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id",
             referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
     private Set<RoleEntity> roles = new HashSet<>();
 
 
+    @Enumerated(EnumType.STRING)
     private LevelEnum level;
+
+    private String fullName;
 
     public String getUsername() {
         return username;
@@ -42,9 +44,18 @@ public class UserEntity extends BaseEntity {
     public UserEntity() {
         RoleEnum userRole = RoleEnum.USER;
         RoleEntity usRole = new RoleEntity();
-        usRole.setName(userRole);
+        usRole.setRole(userRole);
 
         this.roles.add(usRole);
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public UserEntity setFullName(String fullName) {
+        this.fullName = fullName;
+        return this;
     }
 
     public UserEntity setUsername(String username) {
