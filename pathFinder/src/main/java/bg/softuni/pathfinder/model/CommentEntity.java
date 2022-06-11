@@ -22,6 +22,7 @@ public class CommentEntity extends BaseEntity {
     @ManyToOne
     private RouteEntity route;
 
+
     public boolean isApproved() {
         return approved;
     }

@@ -4,9 +4,7 @@ import bg.softuni.pathfinder.model.enums.LevelEnum;
 import bg.softuni.pathfinder.model.enums.RoleEnum;
 
 import java.util.*;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -28,7 +26,10 @@ public class UserEntity extends BaseEntity {
     @Email
     private String email;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id",
+            referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
     private Set<RoleEntity> roles = new HashSet<>();
 
 

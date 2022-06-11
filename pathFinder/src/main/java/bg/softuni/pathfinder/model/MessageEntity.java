@@ -17,6 +17,9 @@ public class MessageEntity extends BaseEntity {
     private String textContent;
 
     @ManyToOne
+    private UserEntity author;
+
+    @ManyToOne
     private UserEntity recipient;
 
     public Instant getDateTime() {
@@ -45,4 +48,5 @@ public class MessageEntity extends BaseEntity {
         this.recipient = recipient;
         return this;
     }
+
 }
