@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.model;
 
+import java.util.List;
 import bg.softuni.pathfinder.model.enums.LevelEnum;
 
 import javax.persistence.*;
@@ -20,6 +21,12 @@ public class RouteEntity extends BaseEntity {
     private UserEntity author;
 
     private String url;
+
+    @OneToMany(
+            mappedBy = "route", targetEntity = PictureEntity.class,
+            fetch = FetchType.LAZY,cascade = CascadeType.ALL
+    )
+    private List<PictureEntity> pictures;
 
     public String getCoordinates() {
         return coordinates;
