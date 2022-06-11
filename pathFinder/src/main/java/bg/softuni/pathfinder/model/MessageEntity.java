@@ -49,4 +49,12 @@ public class MessageEntity extends BaseEntity {
         return this;
     }
 
+    public UserEntity getAuthor() {
+        return author;
+    }
+
+    public MessageEntity setAuthor(UserEntity author) {
+        this.author = author;
+        return this;
+    }
 }
