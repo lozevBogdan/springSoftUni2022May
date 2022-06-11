@@ -23,7 +23,7 @@ public class RouteEntity extends BaseEntity {
     @ManyToOne
     private UserEntity author;
 
-    private String url;
+    private String videoUrl;
 
     @ManyToMany
     private List<CategoryEntity> categories;
@@ -70,12 +70,12 @@ public class RouteEntity extends BaseEntity {
         return this;
     }
 
-    public String getUrl() {
-        return url;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public RouteEntity setUrl(String url) {
-        this.url = url;
+    public RouteEntity setVideoUrl(String url) {
+        this.videoUrl = url;
         return this;
     }
 
