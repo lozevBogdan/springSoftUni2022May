@@ -22,6 +22,9 @@ public class RouteEntity extends BaseEntity {
 
     private String url;
 
+    @ManyToMany
+    private List<CategoryEntity> categories;
+
     @OneToMany(
             mappedBy = "route", targetEntity = PictureEntity.class,
             fetch = FetchType.LAZY,cascade = CascadeType.ALL
