@@ -1,6 +1,8 @@
 package bg.softuni.pathfinder.model;
 
 import java.util.List;
+import java.util.Set;
+
 import bg.softuni.pathfinder.model.enums.LevelEnum;
 
 import javax.persistence.*;
@@ -25,12 +27,13 @@ public class RouteEntity extends BaseEntity {
 
     private String videoUrl;
 
+
     @ManyToMany
     private List<CategoryEntity> categories;
 
     @OneToMany(
             mappedBy = "route", targetEntity = PictureEntity.class,
-            fetch = FetchType.LAZY,cascade = CascadeType.ALL
+            fetch = FetchType.EAGER,cascade = CascadeType.ALL
     )
     private List<PictureEntity> pictures;
 

@@ -14,7 +14,7 @@ spring:
   jpa:
 
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     open-in-view: false
     properties:
       hibernate:
@@ -28,7 +28,7 @@ spring:
   #but first we need to unlock this JPA property - defer-datasource-initialization: true
   sql:
     init:
-      mode: never
+      mode: always
 
   #property for delete method
 

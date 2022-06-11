@@ -13,24 +13,21 @@ import javax.validation.constraints.Size;
 @Entity
 public class UserEntity extends BaseEntity {
 
-    @NotNull
-    @Size(min = 2)
+    @Column(nullable = false,unique = true)
     private String username;
 
-    @NotNull
-    @Size(min = 2)
+    @Column(nullable = false)
     private String password;
 
-
-
+    @Column
     private String email;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id",
             referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
-    private Set<RoleEntity> roles = new HashSet<>();
 
+    private Set<RoleEntity> roles = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     private LevelEnum level;
