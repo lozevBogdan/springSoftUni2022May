@@ -22,10 +22,13 @@ public class UserRegistrationController {
     }
 
     // with @ModelAttribute method annotation we attach to Model UserRegisterDto,
-    // which we can access in everywhere in templates
+    // which we can access in everywhere in templates.
+    // Its important to put the NAME OF ATTRIBUTE, AFTER ANNOTATION  !!!!!!!!!!!!!
+    //@ModelAttribute("NAMEOFTTRIBUTE")
 
     @ModelAttribute("userModel")
     public void initUserModel(Model model){
+
         model.addAttribute("userModel",new UserRegisterDto());
     }
 
