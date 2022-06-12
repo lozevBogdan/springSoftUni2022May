@@ -3,7 +3,7 @@ package bg.softuni.pathfinder.dto;
 public class UserRegistrationDto {
 
     private String username;
-    private String fullName;
+    private String fullname;
     private String email;
     private int age;
     private String password;
@@ -22,12 +22,12 @@ public class UserRegistrationDto {
         return this;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public UserRegistrationDto setFullName(String fullName) {
-        this.fullName = fullName;
+    public UserRegistrationDto setFullname(String fullname) {
+        this.fullname = fullname;
         return this;
     }
 
@@ -71,7 +71,7 @@ public class UserRegistrationDto {
     public String toString() {
         return "UserRegistrationDto{" +
                 "username='" + username + '\'' +
-                ", fullName='" + fullName + '\'' +
+                ", fullName='" + fullname + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", password='" + password + '\'' +

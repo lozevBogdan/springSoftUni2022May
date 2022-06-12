@@ -22,6 +22,8 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
+    private int age;
+
     @Column
     private String email;
 
@@ -47,6 +49,15 @@ public class UserEntity extends BaseEntity {
         usRole.setRole(userRole);
 
         this.roles.add(usRole);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public UserEntity setAge(int age) {
+        this.age = age;
+        return this;
     }
 
     public String getFullName() {
