@@ -23,8 +23,9 @@ public class UserRegistrationController {
 
     // with @ModelAttribute method annotation we attach to Model UserRegisterDto,
     // which we can access in everywhere in templates.
-    // Its important to put the NAME OF ATTRIBUTE, AFTER ANNOTATION  !!!!!!!!!!!!!
-    //@ModelAttribute("NAMEOFTTRIBUTE")
+    // Its important to put the NAME OF ATTRIBUTE, AFTER ANNOTATION If the method is void !!!!!!!!!!!!!
+    //@ModelAttribute("NAMEOFTTRIBUTE") in other way,
+    // the nameof ModelAttribute will become the name of returned class!!!!!!!
 
     @ModelAttribute("userModel")
     public void initUserModel(Model model){
