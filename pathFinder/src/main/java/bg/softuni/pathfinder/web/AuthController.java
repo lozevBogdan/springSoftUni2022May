@@ -1,6 +1,8 @@
 package bg.softuni.pathfinder.web;
 
 import bg.softuni.pathfinder.dto.UserRegistrationDto;
+import bg.softuni.pathfinder.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,13 @@ import javax.validation.Valid;
 
 @Controller
 public class AuthController {
+
+    private AuthService authService;
+
+    @Autowired
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
     // with @ModelAttribute method annotation we attach to Model UserRegisterDto,
     // which we can access in everywhere in templates.
@@ -54,6 +63,8 @@ public class AuthController {
 
 
         // insert in DB
+
+        this.authService.register(userRegistrationDto);
 
         return "redirect:/login";
     }

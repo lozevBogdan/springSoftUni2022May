@@ -44,11 +44,17 @@ public class UserEntity extends BaseEntity {
     }
 
     public UserEntity() {
-        RoleEnum userRole = RoleEnum.USER;
-        RoleEntity usRole = new RoleEntity();
-        usRole.setRole(userRole);
 
-        this.roles.add(usRole);
+    }
+
+    public UserEntity(String username, String password,
+                      int age, String email, String fullName) {
+        this();
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.email = email;
+        this.fullName = fullName;
     }
 
     public int getAge() {
