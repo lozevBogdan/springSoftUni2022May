@@ -4,6 +4,7 @@ import bg.softuni.pathfinder.dto.UserRegistrationDto;
 import bg.softuni.pathfinder.model.RoleEntity;
 import bg.softuni.pathfinder.model.UserEntity;
 import bg.softuni.pathfinder.model.enums.RoleEnum;
+import bg.softuni.pathfinder.repository.RoleRepository;
 import bg.softuni.pathfinder.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,13 @@ import java.util.Optional;
 @Service
 public class AuthService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
     @Autowired
-    public AuthService(UserRepository userRepository) {
+    public AuthService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     public void register(UserRegistrationDto userRegistrationDto){
@@ -39,7 +42,7 @@ public class AuthService {
                     userRegistrationDto.getEmail(),
                     userRegistrationDto.getFullname());
 
-        RoleEntity userRole = new RoleEntity().setRole(RoleEnum.USER);
+        RoleEntity userRole = roleRepository.findByRole(RoleEnum.USER).get();
         newUser.getRoles().add(userRole);
 
         userRepository.save(newUser);
