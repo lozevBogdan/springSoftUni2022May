@@ -9,6 +9,10 @@ public class UserRegistrationDto {
     private String password;
     private String confirmPassword;
 
+
+    public UserRegistrationDto() {
+    }
+
     public String getUsername() {
         return username;
     }
@@ -61,5 +65,17 @@ public class UserRegistrationDto {
     public UserRegistrationDto setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "UserRegistrationDto{" +
+                "username='" + username + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                '}';
     }
 }
