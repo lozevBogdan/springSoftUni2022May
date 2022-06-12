@@ -9,6 +9,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+// In this way we choose to have composite uniq for more than one column :
+//@Table(name = "users",uniqueConstraints = @UniqueConstraint(columnNames = {"id","userName"}))
+
 @Table(name = "users")
 @Entity
 public class UserEntity extends BaseEntity {
