@@ -23,14 +23,24 @@ public class UserRegistrationController {
 
     // with @ModelAttribute method annotation we attach to Model UserRegisterDto,
     // which we can access in everywhere in templates.
-    // Its important to put the NAME OF ATTRIBUTE, AFTER ANNOTATION If the method is void !!!!!!!!!!!!!
+    // It's important to put the NAME OF ATTRIBUTE, AFTER ANNOTATION If the method is void !!!!!!!!!!!!!
     //@ModelAttribute("NAMEOFTTRIBUTE") in other way,
     // the nameof ModelAttribute will become the name of returned class!!!!!!!
+//
+//    @ModelAttribute("userModel")
+//    public void initUserModel(Model model){
+//
+//        model.addAttribute("userModel",new UserRegisterDto());
+//    }
+// ---------------------------------------------------------------------------------------
+
+    // In next case we say to Model "if you don't contains attribute with name 'userModel' -
+    // attach him" with value new UserRegisterDto
 
     @ModelAttribute("userModel")
-    public void initUserModel(Model model){
+    public UserRegisterDto initUserModel(){
 
-        model.addAttribute("userModel",new UserRegisterDto());
+        return new UserRegisterDto();
     }
 
     @GetMapping("/register")
