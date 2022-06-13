@@ -33,13 +33,12 @@ public class UserService {
     public void registerAndLogin(UserRegisterDto userRegisterDto){
 
         UserEntity newUser = userMapper.userDtoToUserEntity(userRegisterDto);
-
         newUser.setPassword(passwordEncoder.
                                 encode(userRegisterDto.getPassword()));
 
-                    newUser = userRepository.save(newUser);
+        newUser = userRepository.save(newUser);
 
-                    login(newUser);
+        login(newUser);
 
 
     }
