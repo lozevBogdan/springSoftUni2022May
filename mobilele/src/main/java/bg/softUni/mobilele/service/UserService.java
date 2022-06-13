@@ -3,6 +3,7 @@ package bg.softUni.mobilele.service;
 import bg.softUni.mobilele.model.dto.UserLoginDto;
 import bg.softUni.mobilele.model.dto.UserRegisterDto;
 import bg.softUni.mobilele.model.entity.UserEntity;
+import bg.softUni.mobilele.model.mapper.UserMapper;
 import bg.softUni.mobilele.repository.UserRepository;
 import bg.softUni.mobilele.user.CurrentUser;
 import org.slf4j.Logger;
@@ -20,22 +21,20 @@ public class UserService {
     private UserRepository userRepository;
     private CurrentUser currentUser;
     private PasswordEncoder passwordEncoder;
+    private UserMapper userMapper;
 
-    public UserService(UserRepository userRepository, CurrentUser currentUser, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, CurrentUser currentUser, PasswordEncoder passwordEncoder, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.currentUser = currentUser;
         this.passwordEncoder = passwordEncoder;
+        this.userMapper = userMapper;
     }
 
     public void registerAndLogin(UserRegisterDto userRegisterDto){
 
-        UserEntity newUser =
-                new UserEntity().
-                        setActive(true).
-                        setEmail(userRegisterDto.getEmail()).
-                        setFirstName(userRegisterDto.getFirstName()).
-                        setLastName(userRegisterDto.getLastName()).
-                        setPassword(passwordEncoder.
+        UserEntity newUser = userMapper.userDtoToUserEntity(userRegisterDto);
+
+        newUser.setPassword(passwordEncoder.
                                 encode(userRegisterDto.getPassword()));
 
                     newUser = userRepository.save(newUser);
