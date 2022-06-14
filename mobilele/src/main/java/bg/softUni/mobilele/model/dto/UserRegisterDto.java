@@ -1,12 +1,20 @@
 package bg.softUni.mobilele.model.dto;
 
 
+import bg.softUni.mobilele.model.validation.FieldMatch;
 import bg.softUni.mobilele.model.validation.UniqueUserEmail;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+// this annotation is our custom validation, first and last are fields which are created by us.
+@FieldMatch(
+        first = "password",
+        second = "confirmPassword",
+        message = "Password do not match"
+
+)
 public class UserRegisterDto {
 
     @NotEmpty(message = "User email should be provided.")
