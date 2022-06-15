@@ -4,6 +4,8 @@ import java.util.List;
 
 public class BrandDto {
 
+    private String name;
+
     private List<ModelDto> models;
 
     public List<ModelDto> getModels() {
@@ -17,6 +19,15 @@ public class BrandDto {
 
     public BrandDto addModel(ModelDto model) {
         this.models.add(model);
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public BrandDto setName(String name) {
+        this.name = name;
         return this;
     }
 }

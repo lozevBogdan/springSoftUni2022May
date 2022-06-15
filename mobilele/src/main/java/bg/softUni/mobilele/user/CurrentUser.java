@@ -8,7 +8,19 @@ import org.springframework.web.context.annotation.SessionScope;
 public class CurrentUser {
 
     private String name;
+
+    private String email;
+
     private boolean loggedIn;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public CurrentUser setEmail(String email) {
+        this.email = email;
+        return this;
+    }
 
     public String getName() {
         return name;
@@ -31,6 +43,7 @@ public class CurrentUser {
     public void clear(){
         loggedIn = false;
         name = "";
+        email =null;
     }
 
     public boolean isAnonymous(){

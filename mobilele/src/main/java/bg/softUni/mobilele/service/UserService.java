@@ -70,6 +70,7 @@ public class UserService {
 
     private void login(UserEntity userEntity){
         currentUser
+                .setEmail(userEntity.getEmail())
                 .setLoggedIn(true)
                 .setName(userEntity.getFirstName() + " " +  userEntity.getLastName());
 
