@@ -8,13 +8,13 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    password: 6460
+    password: 6460okokok
     url: jdbc:mysql://localhost:3306/mobilelele2022?createDatabaseIfNotExist=true
     username: root
   jpa:
 
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     open-in-view: false
     properties:
       hibernate:
@@ -28,7 +28,7 @@ spring:
   #but first we need to unlock this JPA property - defer-datasource-initialization: true
   sql:
     init:
-      mode: always
+      mode: never
 
   #property for delete method
 
