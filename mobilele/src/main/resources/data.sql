@@ -8,4 +8,4 @@ VALUES (1, 'Ford'),
 INSERT INTO models (id, name, category, start_year, end_year, brand_id, image_url)
 VALUES(1, 'Fiesta', 'CAR',1976, NULL , 1, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsOIQwiq0_3bs7BwDa2Qk9x4PI9wv56E25VigviSG8SQ&s"),
        (2, 'Escort', 'CAR',1976, 2000 , 1, "https://autoprofi.bg/modeltypecar_image/ford-escort-vii-(gal-aal-abl).jpg"),
-       (3, 'Yaris', 'CAR',1999, NULL , 1, "https://autoprofi.bg/modeltypecar_image/ford-escort-vii-(gal-aal-abl).jpg");
+       (3, 'Yaris', 'CAR',1999, NULL , 2, "https://autoprofi.bg/modeltypecar_image/ford-escort-vii-(gal-aal-abl).jpg");
