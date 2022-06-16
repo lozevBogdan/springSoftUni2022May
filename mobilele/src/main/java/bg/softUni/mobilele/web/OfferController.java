@@ -55,6 +55,7 @@ public class OfferController {
                     "org.springframework.validation.BindingResult.addOfferDto",
                     bindingResult);
 
+            System.out.println();
             return "redirect:/offers/add";
         }
 

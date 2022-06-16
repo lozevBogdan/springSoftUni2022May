@@ -71,4 +71,40 @@ public class AddOfferDto {
         this.imageUrl = imageUrl;
         return this;
     }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public AddOfferDto setPrice(Integer price) {
+        this.price = price;
+        return this;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public AddOfferDto setYear(Integer year) {
+        this.year = year;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public AddOfferDto setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public Integer getMileage() {
+        return mileage;
+    }
+
+    public AddOfferDto setMileage(Integer mileage) {
+        this.mileage = mileage;
+        return this;
+    }
 }
