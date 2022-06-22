@@ -42,4 +42,8 @@ public class CategoryService {
 
 
     }
+
+    public CategoryEntity getByCategoryEnum(CategoryEnum category) {
+        return this.categoryRepository.findByName(category);
+    }
 }

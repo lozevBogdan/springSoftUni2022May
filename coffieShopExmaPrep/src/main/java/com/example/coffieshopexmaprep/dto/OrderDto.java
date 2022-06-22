@@ -3,6 +3,7 @@ package com.example.coffieshopexmaprep.dto;
 import com.example.coffieshopexmaprep.entity.CategoryEntity;
 import com.example.coffieshopexmaprep.entity.UserEntity;
 import com.example.coffieshopexmaprep.entity.enums.CategoryEnum;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
@@ -25,6 +26,7 @@ public class OrderDto {
 
     @NotNull
     @PastOrPresent
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime orderTime;
 
     @NotNull
@@ -79,5 +81,16 @@ public class OrderDto {
     public OrderDto setDescription(String description) {
         this.description = description;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDto{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", orderTime=" + orderTime +
+                ", category=" + category +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

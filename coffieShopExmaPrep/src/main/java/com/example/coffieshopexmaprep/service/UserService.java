@@ -57,4 +57,8 @@ public class UserService {
         return
                 (this.userRepository.findByUsername(username) == null);
     }
+
+    public UserEntity findCurrentUserById(Long id) {
+        return this.userRepository.findById(id).get();
+    }
 }
