@@ -8,6 +8,8 @@ import com.example.coffieshopexmaprep.repositories.OrderRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 public class OrderService {
 
@@ -38,5 +40,9 @@ public class OrderService {
         this.orderRepository.save(newOrder);
 
 
+    }
+
+    public List<OrderEntity> getAllOrders() {
+        return this.orderRepository.findAll();
     }
 }
