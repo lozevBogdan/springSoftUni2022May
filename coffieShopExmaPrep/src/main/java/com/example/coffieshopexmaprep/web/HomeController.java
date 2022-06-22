@@ -14,6 +14,15 @@ public class HomeController {
     }
 
     @GetMapping("/")
+    public String indexPage(){
+
+        if (currentUser.getId() == null){
+            return "index";
+        }
+        //todo logic for loged in user
+        return "home";
+    }
+    @GetMapping("/home")
     public String homePage(){
 
         if (currentUser.getId() == null){

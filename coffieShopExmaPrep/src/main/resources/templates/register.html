@@ -36,6 +36,12 @@
                         <small id="usernameHelpInline" class= "invalid-feedback bg-danger text-light rounded">
                             Username length must be between 5 and 20 characters.
                         </small>
+
+                        <small th:if="${userNameIsFree} == false " id="passwordHelpInline" class=" bg-danger text-light rounded">
+                            Username is not free.
+                        </small>
+
+
                     </div>
                 </div>
                 <div class="form-group row">
@@ -79,7 +85,7 @@
                         <small id="passwordHelpInline" class="invalid-feedback bg-danger text-light rounded">
                             Password length must be more than 3 characters long.
                         </small>
-                        <small th:if="${notMachPass} == false " id="passwordHelpInline" class=" bg-danger text-light rounded">
+                        <small th:if="${notMachPass} == true " id="passwordHelpInline" class=" bg-danger text-light rounded">
                             Passwords do not match.
                         </small>
                     </div>
@@ -94,7 +100,7 @@
                         <small id="confirmPasswordHelpInline" class="invalid-feedback bg-danger text-light rounded">
                             Password length must be more than 3 characters long.
                         </small>
-                        <small th:if="${notMachPass} == false " id="passwordHelpInline" class=" bg-danger text-light rounded">
+                        <small th:if="${notMachPass} == true " id="passwordHelpInline" class=" bg-danger text-light rounded">
                             Passwords do not match.
                         </small>
                     </div>

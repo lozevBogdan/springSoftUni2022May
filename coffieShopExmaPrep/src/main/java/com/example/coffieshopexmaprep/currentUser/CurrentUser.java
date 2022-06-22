@@ -27,4 +27,16 @@ public class CurrentUser {
         this.username = username;
         return this;
     }
+
+    public boolean isLogged(){
+        return this.id != null;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrentUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
