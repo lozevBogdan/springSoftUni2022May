@@ -36,7 +36,7 @@ public class CategoryService {
                     });
 
                     this.categoryRepository.save(newCategory);
-                    System.out.println();
+
 
                 });
 
