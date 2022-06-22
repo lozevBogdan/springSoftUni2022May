@@ -6,7 +6,7 @@ import org.springframework.beans.PropertyAccessorFactory;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class FieldMatchValidator implements ConstraintValidator<FieldMatch,Object> {
+public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Object> {
 
     private String first;
     private String second;
@@ -33,13 +33,13 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch,Objec
 
         boolean isValid;
 
-        if (firstValue == null){
-            isValid = secondValue== null;
-        }else {
+        if (firstValue == null) {
+            isValid = secondValue == null;
+        } else {
             isValid = firstValue.equals(secondValue);
         }
 
-        if(!isValid){
+        if (!isValid) {
             context.buildConstraintViolationWithTemplate(message).
                     addPropertyNode(second).
                     addConstraintViolation().

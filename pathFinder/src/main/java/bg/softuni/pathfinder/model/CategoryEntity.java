@@ -5,7 +5,7 @@ import bg.softuni.pathfinder.model.enums.CategoryEnum;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="categories")
+@Table(name = "categories")
 public class CategoryEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)

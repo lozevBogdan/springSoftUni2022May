@@ -107,7 +107,7 @@ public class ModelEntity extends BaseEntity {
     }
 
     @PrePersist
-    public void beforeCreate(){
+    public void beforeCreate() {
         this.created = Instant.now();
     }
 

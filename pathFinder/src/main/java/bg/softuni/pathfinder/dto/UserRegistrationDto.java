@@ -5,11 +5,11 @@ import javax.validation.constraints.*;
 public class UserRegistrationDto {
 
     @NotNull
-    @Size(min = 5,max = 20)
+    @Size(min = 5, max = 20)
     private String username;
 
     @NotNull
-    @Size(min = 5,max = 20)
+    @Size(min = 5, max = 20)
     private String fullname;
 
     @NotNull
@@ -22,11 +22,11 @@ public class UserRegistrationDto {
     private int age;
 
     @NotNull
-    @Size(min = 5,max = 20)
+    @Size(min = 5, max = 20)
     private String password;
 
     @NotNull
-    @Size(min = 5,max = 20)
+    @Size(min = 5, max = 20)
     private String confirmPassword;
 
 

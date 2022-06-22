@@ -20,8 +20,7 @@ public class BrandService {
     }
 
 
-
-    public List<BrandDto> getAllBrands(){
+    public List<BrandDto> getAllBrands() {
         return this.brandRepository.
                 findAll().
                 stream().
@@ -29,14 +28,14 @@ public class BrandService {
                 collect(Collectors.toList());
     }
 
-    private BrandDto map(BrandEntity brand){
+    private BrandDto map(BrandEntity brand) {
 
         List<ModelDto> modelsDto = brand.
                 getModels().
                 stream().
                 map(this::mapModel).collect(Collectors.toList());
 
-                BrandDto result = new BrandDto();
+        BrandDto result = new BrandDto();
 
         result.
                 setName(brand.getName()).
@@ -46,7 +45,7 @@ public class BrandService {
 
     }
 
-    private ModelDto mapModel(ModelEntity modelEntity){
+    private ModelDto mapModel(ModelEntity modelEntity) {
 
         return new ModelDto().
                 setName(modelEntity.getName()).

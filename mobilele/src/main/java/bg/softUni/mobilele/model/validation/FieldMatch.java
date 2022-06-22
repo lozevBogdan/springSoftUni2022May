@@ -12,17 +12,18 @@ import java.lang.annotation.Target;
 //with TYPE means we can used to class
 @Target(ElementType.TYPE)
 // Class which will get validation
-@Constraint(validatedBy =FieldMatchValidator.class)
+@Constraint(validatedBy = FieldMatchValidator.class)
 public @interface FieldMatch {
 
     String first();
+
     String second();
 
     String message() default "Passwords dont match!";
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload> [] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 
 
 }

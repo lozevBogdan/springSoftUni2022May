@@ -30,11 +30,11 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public void registerAndLogin(UserRegisterDto userRegisterDto){
+    public void registerAndLogin(UserRegisterDto userRegisterDto) {
 
         UserEntity newUser = userMapper.userDtoToUserEntity(userRegisterDto);
         newUser.setPassword(passwordEncoder.
-                                encode(userRegisterDto.getPassword()));
+                encode(userRegisterDto.getPassword()));
 
         newUser = userRepository.save(newUser);
 
@@ -43,13 +43,13 @@ public class UserService {
 
     }
 
-    public boolean login(UserLoginDto userLoginDto){
+    public boolean login(UserLoginDto userLoginDto) {
 
         Optional<UserEntity> userOpt =
                 userRepository.findByEmail(userLoginDto.getUsername());
 
-        if(userOpt.isEmpty()){
-            LOGGER.info("User with name [{}] not found",userLoginDto.getUsername());
+        if (userOpt.isEmpty()) {
+            LOGGER.info("User with name [{}] not found", userLoginDto.getUsername());
             return false;
         }
 
@@ -57,26 +57,26 @@ public class UserService {
         String encodedPassword = userOpt.get().getPassword();
 
         boolean success =
-                passwordEncoder.matches(rawPassword,encodedPassword);
+                passwordEncoder.matches(rawPassword, encodedPassword);
 
-        if(success){
+        if (success) {
             login(userOpt.get());
-        }else {
+        } else {
             logout();
         }
         return success;
 
     }
 
-    private void login(UserEntity userEntity){
+    private void login(UserEntity userEntity) {
         currentUser
                 .setEmail(userEntity.getEmail())
                 .setLoggedIn(true)
-                .setName(userEntity.getFirstName() + " " +  userEntity.getLastName());
+                .setName(userEntity.getFirstName() + " " + userEntity.getLastName());
 
     }
 
-    public void logout(){
+    public void logout() {
         currentUser.clear();
     }
 

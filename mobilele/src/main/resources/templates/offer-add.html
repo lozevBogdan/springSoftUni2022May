@@ -19,9 +19,9 @@
 <div class="container">
     <h2 class="text-center text-white">Upload Offer</h2>
 
-    <form   th:action="@{/offers/add}"
-            th:method="post"
-            th:object="${addOfferDto}"
+    <form th:action="@{/offers/add}"
+          th:method="post"
+          th:object="${addOfferDto}"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="row">
 
@@ -30,17 +30,18 @@
                 <select
                         id="modelId"
                         name="modelId"
-                        th:errorclass = " is-invalid "
+                        th:errorclass=" is-invalid "
                         class="form-control">
                     <option value="">- Select a model -</option>
                     <optgroup th:each="brand : ${brands}"
-                            th:label="${brand.name}">
+                              th:label="${brand.name}">
                         <option
                                 th:each=" model : ${brand.models}"
                                 th:text="${model.name}"
                                 th:value="${model.id}"
                                 th:selected="*{modelId} == ${model.id}"
-                        >Model</option>
+                        >Model
+                        </option>
                     </optgroup>
                 </select>
                 <p class="errors alert alert-danger">
@@ -50,11 +51,11 @@
             <div class="form-group col-md-6 mb-3">
                 <label for="price" class="text-white font-weight-bold">Price</label>
                 <input id="price"
-                       th:errorclass = "is-invalid"
+                       th:errorclass="is-invalid"
                        name="price"
                        type="number" min="0" step="100" class="form-control"
                        placeholder="Suggested price"/>
-                <p  class="invalid-feedback errors alert alert-danger">
+                <p class="invalid-feedback errors alert alert-danger">
                     Suggested price is required.
                 </p>
             </div>
@@ -63,15 +64,15 @@
             <div class="form-group col-md-6 mb-3">
                 <label class="text-center text-white font-weight-bold" for="engine">Engine</label>
                 <select
-                        th:errorclass = " is-invalid "
+                        th:errorclass=" is-invalid "
                         name="engine"
                         id="engine"
                         class="form-control">
                     <option value="">- Select engine type -</option>
                     <option th:each="e : ${T(bg.softUni.mobilele.model.enums.EngineEnum).values()}"
-                    th:text="${e}"
-                    th:value="${e}"
-                    th:selected="${e} == *{engine}">
+                            th:text="${e}"
+                            th:value="${e}"
+                            th:selected="${e} == *{engine}">
                         Engine type
                     </option>
                 </select>
@@ -82,15 +83,15 @@
             <div class="form-group col-md-6 mb-3">
                 <label class="text-center text-white font-weight-bold" for="transmission">Transmission</label>
                 <select
-                        th:errorclass = " is-invalid "
+                        th:errorclass=" is-invalid "
                         name="transmission"
                         id="transmission"
                         class="form-control">
                     <option value="">- Select transmission type -</option>
                     <option th:each="t : ${T(bg.softUni.mobilele.model.enums.TransmissionEnum).values()}"
-                    th:text="${t}"
-                    th:value="${t}"
-                    th:selected="${t} == *{transmission}"> Transmission type
+                            th:text="${t}"
+                            th:value="${t}"
+                            th:selected="${t} == *{transmission}"> Transmission type
                     </option>
                 </select>
                 <p class="invalid-feedback errors alert alert-danger">
@@ -101,10 +102,10 @@
         <div class="row">
             <div class="form-group col-md-6 mb-3">
                 <label for="year" class="text-white font-weight-bold">Year</label>
-                <input th:errorclass = " is-invalid "
-                        name = "year"
-                        id="year"
-                        type="number" min="1900" max="2099" step="1" class="form-control"
+                <input th:errorclass=" is-invalid "
+                       name="year"
+                       id="year"
+                       type="number" min="1900" max="2099" step="1" class="form-control"
                        placeholder="Manufacturing year"/>
                 <p class="invalid-feedback errors alert alert-danger">
                     Manufacturing year is required.
@@ -113,7 +114,7 @@
             <div class="form-group col-md-6 mb-3">
                 <label for="mileage" class="text-white font-weight-bold">Mileage</label>
                 <input id="mileage"
-                       th:errorclass = " is-invalid "
+                       th:errorclass=" is-invalid "
                        name="mileage"
                        type="number" min="0" max="900000" step="1000"
                        class="form-control"
@@ -127,7 +128,7 @@
         <div class="form-group">
             <label class="text-white font-weight-bold" for="description">Description</label>
             <textarea id="description"
-                      th:errorclass = " is-invalid "
+                      th:errorclass=" is-invalid "
                       name="description"
                       type="textarea" class="form-control" rows="3"
                       placeholder="Description"></textarea>
@@ -139,7 +140,7 @@
             <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
             <input id="imageUrl"
                    name="imageUrl"
-                   th:errorclass = " is-invalid "
+                   th:errorclass=" is-invalid "
                    type="url" class="form-control"
                    placeholder="Put vehicle image URL here">
             <p class="invalid-feedback errors alert alert-danger">
@@ -158,7 +159,7 @@
 </div>
 
 <div>
-    <footer> </footer>
+    <footer></footer>
 </div>
 
 </body>

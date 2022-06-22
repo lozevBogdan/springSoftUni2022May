@@ -28,14 +28,13 @@ public class OfferController {
 
 
     @GetMapping("/all")
-    public String addOffers(){
+    public String addOffers() {
         return "offers";
     }
 
     @GetMapping("/add")
-    public String addOffer(Model model)
-    {
-        if(!model.containsAttribute("addOfferDto")){
+    public String addOffer(Model model) {
+        if (!model.containsAttribute("addOfferDto")) {
             model.addAttribute("addOfferDto", new AddOfferDto());
         }
 
@@ -46,11 +45,11 @@ public class OfferController {
 
 
     @PostMapping("/add")
-    public String addOffer(@Valid AddOfferDto addOfferDto,BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes){
+    public String addOffer(@Valid AddOfferDto addOfferDto, BindingResult bindingResult,
+                           RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("addOfferDto",addOfferDto);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("addOfferDto", addOfferDto);
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.addOfferDto",
                     bindingResult);

@@ -47,7 +47,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item"th:if="${@currentUser.isAnonymous()}">
+                <li class="nav-item" th:if="${@currentUser.isAnonymous()}">
                     <a class="nav-link" th:href="@{/users/register}">Register</a>
                 </li>
                 <li class="nav-item" th:if="${@currentUser.isAnonymous()}">

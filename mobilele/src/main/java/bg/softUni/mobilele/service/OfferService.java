@@ -38,7 +38,7 @@ public class OfferService {
     }
 
 
-    public void addOffer(AddOfferDto addOfferDto){
+    public void addOffer(AddOfferDto addOfferDto) {
 
         OfferEntity newOffer = offerMapper.addOfferDtoToOfferEntity(addOfferDto);
 
@@ -58,9 +58,7 @@ public class OfferService {
         this.offerRepository.save(newOffer);
 
 
-
     }
-
 
 
 }

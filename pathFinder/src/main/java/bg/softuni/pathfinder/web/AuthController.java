@@ -30,27 +30,28 @@ public class AuthController {
     // the nameof ModelAttribute will become the name of returned class!!!!!!!
 
     @ModelAttribute("userRegistrationDto")
-    public void initForm(Model model){
-        model.addAttribute("userRegistrationDto",new UserRegistrationDto());
+    public void initForm(Model model) {
+        model.addAttribute("userRegistrationDto", new UserRegistrationDto());
     }
 
 
     @GetMapping("/register")
 
-        public String register(){
+    public String register() {
 
         return "register";
     }
-  //  redirectAttributes.addFlashAttribute attach attribute to Model !!!!!
+
+    //  redirectAttributes.addFlashAttribute attach attribute to Model !!!!!
     @PostMapping("/register")
     public String register(@Valid UserRegistrationDto userRegistrationDto,
                            BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes){
+                           RedirectAttributes redirectAttributes) {
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             redirectAttributes.
                     addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userRegistrationDto",
+                            "org.springframework.validation.BindingResult.userRegistrationDto",
                             bindingResult);
             redirectAttributes.
                     addFlashAttribute("userRegistrationDto", userRegistrationDto);
@@ -70,10 +71,9 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
-
 
 
 }

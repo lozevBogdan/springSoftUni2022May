@@ -69,7 +69,7 @@ public class CommentEntity extends BaseEntity {
     }
 
     @PrePersist
-    public void setCreatedInstantTime(){
+    public void setCreatedInstantTime() {
         this.setCreated(Instant.now());
     }
 

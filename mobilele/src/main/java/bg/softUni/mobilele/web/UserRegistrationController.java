@@ -38,13 +38,13 @@ public class UserRegistrationController {
     // attach him" with value new UserRegisterDto
 
     @ModelAttribute("userModel")
-    public UserRegisterDto initUserModel(){
+    public UserRegisterDto initUserModel() {
 
         return new UserRegisterDto();
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register() {
         return "auth-register";
     }
 
@@ -63,12 +63,12 @@ public class UserRegistrationController {
     @PostMapping("/register")
     public String register(@Valid UserRegisterDto userModel,
                            BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes){
+                           RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("userModel",userModel);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("userModel", userModel);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userModel",bindingResult);
+                    "org.springframework.validation.BindingResult.userModel", bindingResult);
             return "redirect:/users/register";
         }
 
