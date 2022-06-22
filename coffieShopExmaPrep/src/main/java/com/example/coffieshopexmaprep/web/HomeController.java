@@ -2,14 +2,15 @@ package com.example.coffieshopexmaprep.web;
 
 import com.example.coffieshopexmaprep.currentUser.CurrentUser;
 import com.example.coffieshopexmaprep.dto.OrderViewDto;
+import com.example.coffieshopexmaprep.entity.UserEntity;
 import com.example.coffieshopexmaprep.service.OrderService;
+import com.example.coffieshopexmaprep.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Controller
@@ -18,11 +19,13 @@ public class HomeController {
     private final CurrentUser currentUser;
     private final OrderService orderService;
     private final ModelMapper modelMapper;
+    private final UserService userService;
 
-    public HomeController(CurrentUser currentUser, OrderService orderService, ModelMapper modelMapper) {
+    public HomeController(CurrentUser currentUser, OrderService orderService, ModelMapper modelMapper, UserService userService) {
         this.currentUser = currentUser;
         this.orderService = orderService;
         this.modelMapper = modelMapper;
+        this.userService = userService;
     }
 
 
@@ -34,10 +37,14 @@ public class HomeController {
             return "index";
         }
         //todo logic for loged in user
-        return "home";
+        return "redirect:/home";
     }
     @GetMapping("/home")
     public String homePage(Model model){
+
+        if (currentUser.getId() == null){
+            return "index";
+        }
 
         if (!model.containsAttribute("sortedOrderViewsDto")){
             model.addAttribute("sortedOrderViewsDto",new LinkedList<OrderViewDto>());
@@ -46,13 +53,6 @@ public class HomeController {
         if (!model.containsAttribute("sum")){
             model.addAttribute("sum","");
         }
-
-        if (currentUser.getId() == null){
-            return "index";
-        }
-
-
-
 
         List<OrderViewDto> sortedOrderViewsDto = this.orderService.
                 getAllOrders().
@@ -67,12 +67,15 @@ public class HomeController {
             sum += o.getCategory().getNeededTime();
         }
 
+      List<UserEntity> employees =
+              this.userService.getAll();
+        employees.sort((a, b)->b.getOrders().size() - a.getOrders().size());
 
         model.addAttribute("sum",sum);
         model.addAttribute("sortedOrderViewsDto", sortedOrderViewsDto);
+        model.addAttribute("employees", employees);
 
 
-        //todo logic for loged in user
         return "home";
     }
 

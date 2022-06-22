@@ -1,10 +1,9 @@
 package com.example.coffieshopexmaprep.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.lang.annotation.Target;
+import java.util.*;
 
 @Table(name = "users")
 @Entity
@@ -25,7 +24,19 @@ public class UserEntity extends BaseEntity{
     @Column(nullable = false,unique = true)
     private String email;
 
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    private List<OrderEntity> orders;
+
     public UserEntity() {
+    }
+
+    public List<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public UserEntity setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
+        return this;
     }
 
     public String getUsername() {

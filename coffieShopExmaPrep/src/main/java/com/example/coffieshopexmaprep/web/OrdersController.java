@@ -4,10 +4,7 @@ import com.example.coffieshopexmaprep.dto.OrderDto;
 import com.example.coffieshopexmaprep.service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -48,6 +45,15 @@ public class OrdersController {
         this.orderService.addOrder(orderDto);
 
         return "redirect:/home";
+    }
+
+    @GetMapping("/ready/{id}")
+    public String ready(@PathVariable Long id){
+
+        this.orderService.deleteOrderWithId(id);
+
+        return "redirect:/home";
+
     }
 
 

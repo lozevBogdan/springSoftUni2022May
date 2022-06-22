@@ -8,7 +8,7 @@ import com.example.coffieshopexmaprep.repositories.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -60,5 +60,9 @@ public class UserService {
 
     public UserEntity findCurrentUserById(Long id) {
         return this.userRepository.findById(id).get();
+    }
+
+    public List<UserEntity> getAll() {
+       return this.userRepository.findAll();
     }
 }

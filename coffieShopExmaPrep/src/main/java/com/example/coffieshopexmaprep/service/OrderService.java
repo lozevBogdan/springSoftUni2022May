@@ -45,4 +45,8 @@ public class OrderService {
     public List<OrderEntity> getAllOrders() {
         return this.orderRepository.findAll();
     }
+
+    public void deleteOrderWithId(Long id) {
+        this.orderRepository.deleteById(id);
+    }
 }
