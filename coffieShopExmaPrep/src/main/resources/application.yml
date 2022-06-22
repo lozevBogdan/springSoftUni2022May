@@ -9,12 +9,12 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     password: 6460okokok
-    url: jdbc:mysql://localhost:3306/coofee_shop?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/coffee_shop?createDatabaseIfNotExist=true
     username: root
   jpa:
 
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     open-in-view: false
     properties:
       hibernate:
