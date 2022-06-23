@@ -71,4 +71,15 @@ public class UserService {
 
 
     }
+
+    public UserEntity findByIdCurrentUser() {
+
+       return this.userRepository.findById(currentUser.getId()).orElse(null);
+
+    }
+
+    public void logoutUser() {
+            this.currentUser.setId(null).setUsername(null);
+
+    }
 }

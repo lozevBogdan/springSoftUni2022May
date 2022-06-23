@@ -96,7 +96,7 @@ public class UserController {
                 this.userService.checkForExistingUsernameWithPassword(userLoginDto().getUsername(),
                 userLoginDto.getPassword());
 
-        System.out.println();
+
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userLoginDto", userLoginDto);
@@ -107,6 +107,14 @@ public class UserController {
         }
 
         this.userService.loginUser(userLoginDto);
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/logout")
+    public String logout(){
+        this.userService.logoutUser();
+
         return "redirect:/";
     }
 
