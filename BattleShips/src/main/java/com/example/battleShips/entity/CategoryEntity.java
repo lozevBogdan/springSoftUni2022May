@@ -2,16 +2,13 @@ package com.example.battleShips.entity;
 
 import com.example.battleShips.entity.enums.CategoryEnums;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "categories")
 @Entity
 public class CategoryEntity extends BaseEntity {
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(unique = true)
     private CategoryEnums name;
 
