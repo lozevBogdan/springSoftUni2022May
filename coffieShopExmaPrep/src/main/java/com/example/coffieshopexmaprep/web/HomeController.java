@@ -37,13 +37,13 @@ public class HomeController {
             return "index";
         }
         //todo logic for loged in user
-        return "redirect:/home";
+        return "redirect:home";
     }
     @GetMapping("/home")
     public String homePage(Model model){
 
         if (currentUser.getId() == null){
-            return "index";
+            return "redirect:/";
         }
 
         if (!model.containsAttribute("sortedOrderViewsDto")){

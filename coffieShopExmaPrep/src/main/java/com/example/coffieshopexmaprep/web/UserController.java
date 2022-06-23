@@ -125,7 +125,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logout(){
         this.userService.logout();
-        return "home";
+        return "redirect:/";
     }
 
 
