@@ -44,7 +44,7 @@ public class OrdersController {
 
         this.orderService.addOrder(orderDto);
 
-        return "redirect:/home";
+        "redirect:/home"
     }
 
     @GetMapping("/ready/{id}")
