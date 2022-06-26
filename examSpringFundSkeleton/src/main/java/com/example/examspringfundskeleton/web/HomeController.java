@@ -78,6 +78,7 @@ public class HomeController {
     }
 
     public String returnMinets(int seconds){
+
         int sec = seconds % 60;
 
         int minets = seconds / 60;
