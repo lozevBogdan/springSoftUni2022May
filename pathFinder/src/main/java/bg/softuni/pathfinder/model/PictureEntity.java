@@ -8,13 +8,13 @@ import javax.persistence.Table;
 @Table(name = "pictures")
 public class PictureEntity extends BaseEntity {
 
-  private String title;
+    private String title;
 
-  private String url;
+    private String url;
 
-  @ManyToOne
-  private UserEntity author;
+    @ManyToOne
+    private UserEntity author;
 
-  @ManyToOne
-  private RouteEntity route;
+    @ManyToOne
+    private RouteEntity route;
 }

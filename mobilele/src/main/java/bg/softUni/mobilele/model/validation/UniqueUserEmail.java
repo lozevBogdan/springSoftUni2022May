@@ -12,13 +12,13 @@ import java.lang.annotation.Target;
 // Can annotate a field with this annotation.
 @Target(ElementType.FIELD)
 // Class which will get validation
-@Constraint(validatedBy =UniqueUserEmailValidator.class)
+@Constraint(validatedBy = UniqueUserEmailValidator.class)
 public @interface UniqueUserEmail {
 
     String message() default "Invalid email";
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload> [] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 
 }

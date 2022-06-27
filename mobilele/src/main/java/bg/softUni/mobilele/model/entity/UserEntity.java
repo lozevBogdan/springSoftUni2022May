@@ -15,7 +15,7 @@ public class UserEntity extends BaseEntity {
     private String lastName;
     private boolean isActive;
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<UserRoleEntity> roles = new ArrayList<>() ;
+    private List<UserRoleEntity> roles = new ArrayList<>();
     private String imageUrl;
     private Instant created;
     private Instant modified;
@@ -89,7 +89,6 @@ public class UserEntity extends BaseEntity {
     }
 
 
-
     public String getImageUrl() {
         return imageUrl;
     }
@@ -117,14 +116,14 @@ public class UserEntity extends BaseEntity {
         return this;
     }
 
-    public UserEntity addRole(UserRoleEntity userRoleEntity){
+    public UserEntity addRole(UserRoleEntity userRoleEntity) {
         this.roles.add(userRoleEntity);
         return this;
 
     }
 
     @PrePersist
-    public void dateAndTimeCreation(){
+    public void dateAndTimeCreation() {
         this.created = Instant.now();
         System.out.println("Im in prepersist annotayion, heyyyy");
     }

@@ -16,12 +16,12 @@ public class SessionController {
     private static final String LANG_SESSION_ATTRIBUTE = "lang";
     private static final String DEFAULT_LANG = "en";
 
-// With HttpSession httpSession we can work with the userSessiion.
+    // With HttpSession httpSession we can work with the userSessiion.
 // Spring will create a new session,
 // which session will be sended on the client in response headers,
 // in cookie with name JSESSIONID
     @GetMapping("/session")
-    public String session(HttpSession httpSession, Model model){
+    public String session(HttpSession httpSession, Model model) {
 
         var sessionLang = httpSession.getAttribute(LANG_SESSION_ATTRIBUTE);
         model.addAttribute("lang",
@@ -34,9 +34,9 @@ public class SessionController {
     public String session(
             HttpSession httpSession,
             @RequestParam("language") String language
-    ){
+    ) {
 
-        httpSession.setAttribute("lang",language);
+        httpSession.setAttribute("lang", language);
 
         return "redirect:/session";
     }

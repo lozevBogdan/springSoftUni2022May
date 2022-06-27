@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-        // This class is created to get the encoded password !!!!!!!
+// This class is created to get the encoded password !!!!!!!
 
 //@Component
 //public class Temp implements CommandLineRunner {

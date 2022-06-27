@@ -22,22 +22,21 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "auth-login";
     }
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout() {
         userService.logout();
         return "redirect:/";
     }
 
     @PostMapping("/login")
-    public String login(UserLoginDto userLoginDto){
-      userService.login(userLoginDto);
+    public String login(UserLoginDto userLoginDto) {
+        userService.login(userLoginDto);
         return "redirect:/";
     }
-
 
 
 }

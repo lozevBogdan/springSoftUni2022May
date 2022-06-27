@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class CookiesController {
 
-private static final String LANG_COOKIE_NAME = "lang";
+    private static final String LANG_COOKIE_NAME = "lang";
 
 
 // with @CookieValue we try to read cookie from HTTP,
@@ -25,27 +25,27 @@ private static final String LANG_COOKIE_NAME = "lang";
                           @CookieValue(
                                   name = LANG_COOKIE_NAME,
                                   defaultValue = "en"
-                          )String lang){
+                          ) String lang) {
 
-        model.addAttribute(LANG_COOKIE_NAME,lang);
+        model.addAttribute(LANG_COOKIE_NAME, lang);
 
         return "cookies";
     }
 
 
     // The value of " @RequestParam("language") String language"  will comes
-     // from cookies.html form by selected option
+    // from cookies.html form by selected option
 
-// HttpServletResponse httpServletResponse = is a object representation of the
+    // HttpServletResponse httpServletResponse = is a object representation of the
     // responce which we return to the client, here we add the cookie
     @PostMapping("/cookies")
     public String cookies(
             HttpServletResponse httpServletResponse,
-        @RequestParam("language") String language
-    ){
+            @RequestParam("language") String language
+    ) {
 
-        Cookie cookie = new Cookie(LANG_COOKIE_NAME,language);
-      httpServletResponse.addCookie(cookie);
+        Cookie cookie = new Cookie(LANG_COOKIE_NAME, language);
+        httpServletResponse.addCookie(cookie);
 
         return "redirect:/cookies";
     }

@@ -1,6 +1,7 @@
 package bg.softUni.mobilele.model.entity;
 
 import java.util.List;
+
 import org.hibernate.engine.spi.CascadeStyles;
 
 import javax.persistence.*;
@@ -63,11 +64,9 @@ public class BrandEntity extends BaseEntity {
     }
 
     @PrePersist
-    public void beforeCreate(){
+    public void beforeCreate() {
         this.created = Instant.now();
     }
-
-
 
 
 }

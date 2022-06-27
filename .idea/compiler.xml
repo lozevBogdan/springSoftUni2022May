@@ -3,6 +3,32 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.1.Final/2bdc76f0222d41dba87daba05be5c9f20029e23/mapstruct-processor-1.5.1.Final.jar" />
+        </processorPath>
+        <module name="mobilele.main" />
+      </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="coffieShopExamPrep" />
+        <module name="demoSpringMVC" />
+        <module name="pathFinder" />
+        <module name="lozev" />
+        <module name="cookieAndSession" />
+      </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="coffieShopExamPrep" options="-parameters" />
+      <module name="cookieAndSession" options="-parameters" />
+      <module name="demoSpringMVC" options="-parameters" />
+      <module name="lozev" options="-parameters" />
+      <module name="pathFinder" options="-parameters" />
+    </option>
   </component>
 </project>

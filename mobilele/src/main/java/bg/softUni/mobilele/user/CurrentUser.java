@@ -40,13 +40,13 @@ public class CurrentUser {
         return this;
     }
 
-    public void clear(){
+    public void clear() {
         loggedIn = false;
         name = "";
-        email =null;
+        email = null;
     }
 
-    public boolean isAnonymous(){
+    public boolean isAnonymous() {
         return !isLoggedIn();
     }
 

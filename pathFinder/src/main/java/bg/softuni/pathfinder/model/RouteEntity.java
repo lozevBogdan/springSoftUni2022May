@@ -33,7 +33,7 @@ public class RouteEntity extends BaseEntity {
 
     @OneToMany(
             mappedBy = "route", targetEntity = PictureEntity.class,
-            fetch = FetchType.EAGER,cascade = CascadeType.ALL
+            fetch = FetchType.EAGER, cascade = CascadeType.ALL
     )
     private List<PictureEntity> pictures;
 

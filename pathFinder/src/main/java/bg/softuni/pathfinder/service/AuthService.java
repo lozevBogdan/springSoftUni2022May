@@ -23,24 +23,24 @@ public class AuthService {
         this.roleRepository = roleRepository;
     }
 
-    public void register(UserRegistrationDto userRegistrationDto){
+    public void register(UserRegistrationDto userRegistrationDto) {
 
-        if (!userRegistrationDto.getPassword().equals(userRegistrationDto.getConfirmPassword())){
-           throw new RuntimeException("password.match");
+        if (!userRegistrationDto.getPassword().equals(userRegistrationDto.getConfirmPassword())) {
+            throw new RuntimeException("password.match");
         }
 
         Optional<UserEntity> byEmail = userRepository.findByEmail(userRegistrationDto.getEmail());
 
-        if(byEmail.isPresent()){
+        if (byEmail.isPresent()) {
             throw new RuntimeException("email.used");
         }
 
-            UserEntity newUser = new UserEntity(
-                    userRegistrationDto.getUsername(),
-                    userRegistrationDto.getPassword(),
-                    userRegistrationDto.getAge(),
-                    userRegistrationDto.getEmail(),
-                    userRegistrationDto.getFullname());
+        UserEntity newUser = new UserEntity(
+                userRegistrationDto.getUsername(),
+                userRegistrationDto.getPassword(),
+                userRegistrationDto.getAge(),
+                userRegistrationDto.getEmail(),
+                userRegistrationDto.getFullname());
 
         RoleEntity userRole = roleRepository.findByRole(RoleEnum.USER).get();
         newUser.getRoles().add(userRole);

@@ -1,0 +1,38 @@
+logging:
+  level:
+    blog: WARN
+    org: WARN
+    org.hibernate.SQL: DEBUG
+server:
+  port: 8080
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: 6460okokok
+    url: jdbc:mysql://localhost:3306/battleShips_DB?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    #the next line is for reading of sql file, this property will say to
+    #Spring to initializeted first the data Base by Hibernate and after her initialization to
+    # execute the sql file
+    defer-datasource-initialization: true
+  # for loading a data from data.sql file shoud use next propurties:
+  #but first we need to unlock this JPA property - defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
+
+  #property for delete method
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
