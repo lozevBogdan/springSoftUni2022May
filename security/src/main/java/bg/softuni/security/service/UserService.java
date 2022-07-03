@@ -99,6 +99,7 @@ public class UserService {
     UserDetails userDetails =
         appUserDetailsService.loadUserByUsername(newUser.getEmail());
 
+    // this hold the Principal in session
     Authentication auth =
         new UsernamePasswordAuthenticationToken(
             userDetails,
