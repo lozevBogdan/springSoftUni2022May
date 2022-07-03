@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5a516dac-0f8f-43f3-b4f4-303d4563c3ce" name="Changes" comment="merge 6/22/22">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examSpringFundSkeleton/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/examSpringFundSkeleton/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobilele/src/main/resources/templates/offer-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/mobilele/src/main/resources/templates/offer-add.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/books" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RunDashboard">
@@ -66,6 +72,20 @@
     <configuration name="CoffieShopExamPrepApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="coffieShopExamPrep" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.coffieshopexamprep.CoffieShopExamPrepApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CookieAndSessionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="cookieAndSession" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.softUni.cookieAndSession.CookieAndSessionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoSpringMvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demoSpringMVC" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bg.softUni.demoSpringMVC.DemoSpringMvcApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -94,6 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655884825600</updated>
       <workItem from="1655884827828" duration="559000" />
+      <workItem from="1656569415672" duration="114000" />
     </task>
     <task id="LOCAL-00001" summary="merge 6/22/22">
       <created>1655885397797</created>
