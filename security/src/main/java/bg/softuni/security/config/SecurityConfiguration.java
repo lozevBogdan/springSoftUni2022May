@@ -2,14 +2,12 @@ package bg.softuni.security.config;
 
 import bg.softuni.security.model.enums.UserRoleEnum;
 import bg.softuni.security.repository.UserRepository;
-import bg.softuni.security.service.AppUserDetailsService;
+import bg.softuni.security.service.UserDetailsServiceImpl;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -74,7 +72,7 @@ public class SecurityConfiguration {
 
   @Bean
   public UserDetailsService userDetailsService(UserRepository userRepository) {
-    return new AppUserDetailsService(userRepository);
+    return new UserDetailsServiceImpl(userRepository);
   }
 
 

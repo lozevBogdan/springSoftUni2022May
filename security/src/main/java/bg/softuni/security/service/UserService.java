@@ -24,7 +24,7 @@ public class UserService {
   private final UserRepository userRepository;
   private final UserRoleRepository userRoleRepository;
   private final PasswordEncoder passwordEncoder;
-  private final UserDetailsService appUserDetailsService;
+  private final UserDetailsService userDetailsService;
   private String adminPass;
 
   public UserService(UserRepository userRepository,
@@ -35,7 +35,7 @@ public class UserService {
     this.userRepository = userRepository;
     this.userRoleRepository = userRoleRepository;
     this.passwordEncoder = passwordEncoder;
-    this.appUserDetailsService = appUserDetailsService;
+    this.userDetailsService = appUserDetailsService;
     this.adminPass = adminPass;
   }
 
@@ -97,7 +97,7 @@ public class UserService {
     userRepository.save(newUser);
 
     UserDetails userDetails =
-        appUserDetailsService.loadUserByUsername(newUser.getEmail());
+        userDetailsService.loadUserByUsername(newUser.getEmail());
 
     // this hold the Principal in session
     Authentication auth =
