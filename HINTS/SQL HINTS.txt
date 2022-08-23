@@ -1,0 +1,40 @@
+INNER JOIN (или просто JOIN) - ще се извлекат само записите които имат съотвестващи записи във втората таблица:
+
+SELECT s.name, c.name
+FROM students AS s
+INNER JOIN courses AS c // or just JOIN
+ON s.course_id = c.id
+
+LEFT JOIN - всички записи от лявата таблица, дори и да нямат запис съответстващ в дясната ще бъдат извлечени
+
+SELECT s.name, c.name
+FROM students AS s
+LEFT JOIN courses AS c
+ON s.course_id = c.id
+
+RIGHT JOIN - всички записи от дясната таблица, дори и да нямат запис съответстващ в лявата ще бъдат извлечени
+
+SELECT s.name, c.name
+FROM students AS s
+RIGHT JOIN courses AS c
+ON s.course_id = c.id
+
+
+OUTER (FULL) JOIN - това UNION (обеденяване) на RIGHT JOIN AND LEFT JOIN, ще бъдат извлечени всички записи дори и празните
+
+SELECT s.name, c.name
+FROM students AS s
+LEFT JOIN courses AS c
+ON s.course_id = c.id
+
+UNION
+
+SELECT s.name, c.name
+FROM students AS s
+RIGHT JOIN courses AS c
+ON s.course_id = c.id
+
+CROSS JOIN - записи на всеки със всеки. Carstesian Product
+
+SELECT * FROM courses AS c
+CROSS JOIN students AS s

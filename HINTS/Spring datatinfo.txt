@@ -1,0 +1,3 @@
+JPA - Java persistence API - анотациите като @Entity, @Table, @Column и тнт., работи с POJO entities with анотации и XML mapping, Object-relational mapping (ORM) tehnology.
+
+JPQL -  JAVA PERSISTENCE QUERY LANGUAGE
